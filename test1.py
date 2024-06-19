@@ -4,8 +4,6 @@ import argparse
 
 def process_command(command):
     cmd = command[0:2]  # Получаем команду cmd
-    channel = int(command[2])  # Получаем номер канала x
-    state = int(command[4])  # Получаем состояние y
 
     if cmd == 'LG':
         process_LG_command(channel, state)
