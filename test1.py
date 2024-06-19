@@ -3,15 +3,15 @@ import sys
 import argparse
 
 def process_command(command):
-    cmd = command[0:2]  # Получаем команду cmd
+    cmd = command[0:3]  # Получаем команду cmd
 
     if cmd == 'LG':
-        channel = int(command[2])
-        state = int(command[4])    
+        channel = int(command[3])
+        state = int(command[5])    
         process_LG_command(channel, state)
     elif cmd == 'L':
-        channel = int(command[2])
-        state = int(command[4])
+        channel = int(command[1])
+        state = int(command[3])
         process_L_command(channel, state)
     elif cmd == 'LR':
         channel = int(command[2])
@@ -28,7 +28,6 @@ def process_command(command):
     else:
         print("Error: Invalid command")
 
-        print("Error: Invalid command")
 
 def process_LG_command(channel, state):
     # Обработка команды LG
