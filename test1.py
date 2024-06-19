@@ -26,7 +26,7 @@ def process_command(command):
         state = int(command[5])        
         process_REL_command(channel, state)
     else:
-        print("Error: Invalid command")
+        print("Error: Invalid command {cmd}")
 
 
 
