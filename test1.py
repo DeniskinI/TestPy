@@ -3,7 +3,7 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("--device", type=str, default="/dev/ttyS4", help='specify the serial node')
+parser.add_argument("--device", type=str, default="/dev/ttyS3", help='specify the serial node')
 args = parser.parse_args()
 
 wiringpi.wiringPiSetup()
@@ -11,6 +11,7 @@ serial = wiringpi.serialOpen(args.device, 115200)
 if serial < 0:
     print("Unable to open serial device: %s"% args.device)
     sys.exit(-1)
+
 
 message = ""  # Переменная для хранения полученных символов
 
