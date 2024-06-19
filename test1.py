@@ -6,7 +6,7 @@ def process_command(command):
     cmd = command[0:3]  # Получаем команду cmd
 
     if cmd == 'LG':
-        channel = int(command[3])
+        channel = int(command[2])
         state = int(command[5])    
         process_LG_command(channel, state)
     elif cmd == 'L':
@@ -15,7 +15,7 @@ def process_command(command):
         process_L_command(channel, state)
     elif cmd == 'LR':
         channel = int(command[2])
-        state = int(command[4])
+        state = int(command[5])
         process_LR_command(channel, state)
     elif cmd == 'B':
         channel = int(command[1])
@@ -27,6 +27,7 @@ def process_command(command):
         process_REL_command(channel, state)
     else:
         print("Error: Invalid command")
+
 
 
 def process_LG_command(channel, state):
