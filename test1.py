@@ -9,14 +9,25 @@ def process_command(command):
 
     if cmd == 'LG':
         process_LG_command(channel, state)
+        channel = int(command[2])
+        state = int(command[4])
     elif cmd == 'L':
         process_L_command(channel, state)
+        channel = int(command[1])
+        state = int(command[3])
     elif cmd == 'LR':
         process_LR_command(channel, state)
+        channel = int(command[2])
+        state = int(command[4])
+        
     elif cmd == 'B':
         process_B_command(channel, state)
+        channel = int(command[1])
+        state = int(command[3])
     elif cmd == 'REL':
         process_REL_command(channel, state)
+        channel = int(command[3])
+        state = int(command[5])        
     else:
         print("Error: Invalid command")
 
