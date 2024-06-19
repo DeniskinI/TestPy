@@ -5,15 +5,15 @@ import argparse
 def process_command(command):
     cmd = command[0:3]  # Получаем команду cmd
 
-    if cmd == 'LG':
+    if cmd[0:1] == 'LG':
         channel = int(command[2])
         state = int(command[5])    
         process_LG_command(channel, state)
-    elif cmd == 'L':
+    elif cmd[0] == 'L':
         channel = int(command[1])
         state = int(command[3])
         process_L_command(channel, state)
-    elif cmd == 'LR':
+    elif cmd[0:1] == 'LR':
         channel = int(command[2])
         state = int(command[5])
         process_LR_command(channel, state)
