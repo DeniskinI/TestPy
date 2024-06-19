@@ -56,13 +56,9 @@ try:
     while True:
         if wiringpi.serialDataAvail(serial):  # Проверяем наличие данных в UART
             char = wiringpi.serialGetchar(serial)  # Читаем символ из UART
-            if char == ord('\n'):  # Проверяем, является ли символ символом новой строки
-                if len(message) == 5:  # Проверяем, что длина сообщения равна 5 символам (формат "cmdx y")
-                    process_command(message)
-                    wiringpi.serialPuts(serial, "OK\n")  # Отправляем "OK" обратно в порт
-                else:
-                    print("Error: Invalid command format")
-                    wiringpi.serialPuts(serial, "Error: Invalid command format\n")  # Отправляем ошибку обратно в порт
+            if char == ord('\n'):  # Обрабатываем сообщение при достижении длины 5 или при символе новой строки
+                process_command(message)
+                wiringpi.serialPuts(serial, "OK\n")  # Отправляем "OK" обратно в порт
                 message = ""  # Очищаем сообщение для следующей итерации
             else:
                 message += chr(char)  # Добавляем символ к полученному сообщению
