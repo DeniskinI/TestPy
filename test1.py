@@ -14,8 +14,8 @@ def process_command(command):
             state = int(command[4])
             process_LR_command(channel, state)      
         elif cmd[1] == 'G':
-            channel = int(command[1])
-            state = int(command[3])    
+            channel = int(command[2])
+            state = int(command[4])    
             process_LG_command(channel, state)       
         elif cmd[1].isdigit():
             channel = int(command[1])
