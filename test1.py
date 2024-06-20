@@ -23,11 +23,11 @@ def process_command(command):
             process_L_command(channel, state)        
         else:
             print(f"Error: Invalid command {cmd}")
-    elif cmd == 'B':
+    elif cmd[0] == 'B':
         channel = int(command[1])
         state = int(command[3])
         process_B_command(channel, state)
-    elif cmd == 'REL':
+    elif cmd[0:3] == 'REL':
         channel = int(command[3])
         state = int(command[5])        
         process_REL_command(channel, state)
