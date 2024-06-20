@@ -285,9 +285,9 @@ try:
                 wiringpi.delayMicroseconds(50000)
                 
                 if process_command(message) == True:
-                    wiringpi.serialPuts(serial, "OK\n")  # Отправляем "OK" обратно в порт
+                    wiringpi.serialPuts(serial, "OK\n\r")  # Отправляем "OK" обратно в порт
                 else:
-                    wiringpi.serialPuts(serial, "ERROR\n")
+                    wiringpi.serialPuts(serial, "ERROR\n\r")
                 message = ""  # Очищаем сообщение для следующей итерации
                 wiringpi.delayMicroseconds(50000)
                 wiringpi.digitalWrite(24, GPIO.LOW)
