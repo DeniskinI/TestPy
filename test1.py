@@ -289,9 +289,9 @@ try:
                 else:
                     wiringpi.serialPuts(serial, "ERROR\n")
                 message = ""  # Очищаем сообщение для следующей итерации
-                
-                wiringpi.digitalWrite(24, GPIO.LOW)
                 wiringpi.delayMicroseconds(50000)
+                wiringpi.digitalWrite(24, GPIO.LOW)
+                
                 
             else:
                 message += chr(char)  # Добавляем символ к полученному сообщению
