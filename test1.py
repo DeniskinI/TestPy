@@ -32,10 +32,31 @@ def process_command(command):
         channel = int(command[3])
         state = int(command[5])        
         process_REL_command(channel, state)
+    elif cmd[0] == 'S':
+        channel = int(command[1])
+        process_S_command(channel)
     else:
         print(f"Error: Invalid command {cmd}")
 
 
+def process_S_command(channel):
+    # Обработка команды S
+    print(f"Processing S command: Channel {channel}")
+    
+    if channel == 1:
+        level =  wiringpi.digitalRead(19)
+        print(f"Level: {level}")
+    elif channel == 2:
+        level =  wiringpi.digitalRead(15)
+        print(f"Level: {level}")
+    elif channel == 3:
+        level =  wiringpi.digitalRead(6)
+        print(f"Level: {level}")
+    elif channel == 4:
+        level =  wiringpi.digitalRead(1)
+        print(f"Level: {level}")
+    else:
+        print(f"Error: Invalid parametr channel {channel}")
 
 def process_LG_command(channel, state):
     # Обработка команды LG
