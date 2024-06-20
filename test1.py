@@ -1,6 +1,7 @@
 import wiringpi
 import sys
 import argparse
+from wiringpi import GPIO
 
 def process_command(command):
     cmd = command[0:3]  # Получаем команду cmd
@@ -65,6 +66,42 @@ serial = wiringpi.serialOpen(args.device, 115200)
 if serial < 0:
     print("Unable to open serial device: %s" % args.device)
     sys.exit(-1)
+    
+wiringpi.wiringPiSetup()
+
+wiringpi.pinMode(20, GPIO.OUTPUT)
+wiringpi.pinMode(13, GPIO.OUTPUT)
+wiringpi.pinMode(4, GPIO.OUTPUT)
+wiringpi.pinMode(3, GPIO.OUTPUT)
+
+wiringpi.pinMode(25, GPIO.OUTPUT)
+wiringpi.pinMode(12, GPIO.OUTPUT)
+wiringpi.pinMode(2, GPIO.OUTPUT)
+wiringpi.pinMode(0, GPIO.OUTPUT)
+
+wiringpi.pinMode(9, GPIO.OUTPUT)
+wiringpi.pinMode(11, GPIO.OUTPUT)
+wiringpi.pinMode(26, GPIO.OUTPUT)
+wiringpi.pinMode(23, GPIO.OUTPUT)
+
+wiringpi.pinMode(7, GPIO.OUTPUT)
+wiringpi.pinMode(10, GPIO.OUTPUT)
+wiringpi.pinMode(16, GPIO.OUTPUT)
+wiringpi.pinMode(22, GPIO.OUTPUT)
+
+wiringpi.pinMode(5, GPIO.OUTPUT)
+wiringpi.pinMode(8, GPIO.OUTPUT)
+wiringpi.pinMode(14, GPIO.OUTPUT)
+wiringpi.pinMode(21, GPIO.OUTPUT)
+
+wiringpi.pinMode(24, GPIO.OUTPUT)
+
+
+wiringpi.pinMode(19, GPIO.INPUT)
+wiringpi.pinMode(15, GPIO.INPUT)
+wiringpi.pinMode(6, GPIO.INPUT)
+wiringpi.pinMode(1, GPIO.INPUT)
+
 
 message = ""  # Переменная для хранения полученных символов
 
