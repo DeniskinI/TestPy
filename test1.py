@@ -7,6 +7,7 @@ def process_command(command):
     cmd = command[0:3]  # Получаем команду cmd
     
 def process_command(command):
+    retval = True
     cmd = command[0:3]  # Получаем команду cmd
     
     if cmd[0] == 'L':
@@ -24,6 +25,7 @@ def process_command(command):
             process_L_command(channel, state)        
         else:
             print(f"Error: Invalid command {cmd}")
+            retval = False
     elif cmd[0] == 'B':
         channel = int(command[1])
         state = int(command[3])
@@ -37,6 +39,9 @@ def process_command(command):
         process_S_command(channel)
     else:
         print(f"Error: Invalid command {cmd}")
+        retval = False
+        
+    return retval
 
 
 def process_S_command(channel):
@@ -275,10 +280,19 @@ try:
     while True:
         if wiringpi.serialDataAvail(serial):  # Проверяем наличие данных в UART
             char = wiringpi.serialGetchar(serial)  # Читаем символ из UART
-            if char == ord('\n'):  # Обрабатываем сообщение при достижении длины 5 или при символе новой строки
-                process_command(message)
-                wiringpi.serialPuts(serial, "OK\n")  # Отправляем "OK" обратно в порт
+            if char == ord('\n'):  # Обрабатываем сообщение при символе новой строки
+                wiringpi.digitalWrite(24, GPIO.HIGH)
+                wiringpi.delayMicroseconds(50000)
+                
+                if process_command(message) == True:
+                    wiringpi.serialPuts(serial, "OK\n")  # Отправляем "OK" обратно в порт
+                else:
+                    wiringpi.serialPuts(serial, "ERROR\n")
                 message = ""  # Очищаем сообщение для следующей итерации
+                
+                wiringpi.digitalWrite(24, GPIO.LOW)
+                wiringpi.delayMicroseconds(50000)
+                
             else:
                 message += chr(char)  # Добавляем символ к полученному сообщению
 except KeyboardInterrupt:
