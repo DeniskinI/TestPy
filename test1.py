@@ -73,14 +73,101 @@ def process_LG_command(channel, state):
 def process_L_command(channel, state):
     # Обработка команды L
     print(f"Processing L command: Channel {channel}, State {state}")
+    
+    if channel == 1:
+        if state == 0:
+            wiringpi.digitalWrite(25, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(25, GPIO.HIGH)
+    
+    elif channel == 2:
+        if state == 0:
+            wiringpi.digitalWrite(12, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(12, GPIO.HIGH)
+    
+    elif channel == 3:
+        if state == 0:
+            wiringpi.digitalWrite(2, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(2, GPIO.HIGH)
+    
+    
+    elif channel == 4:
+        if state == 0:
+            wiringpi.digitalWrite(0, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(0, GPIO.HIGH)
+    
+    
+    else:
+        print(f"Error: Invalid parametr channel {channel}")    
 
 def process_LR_command(channel, state):
     # Обработка команды LR
     print(f"Processing LR command: Channel {channel}, State {state}")
+    
+    if channel == 1:
+        if state == 0:
+            wiringpi.digitalWrite(9, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(9, GPIO.HIGH)
+    
+    elif channel == 2:
+        if state == 0:
+            wiringpi.digitalWrite(11, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(11, GPIO.HIGH)
+    
+    elif channel == 3:
+        if state == 0:
+            wiringpi.digitalWrite(26, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(26, GPIO.HIGH)
+    
+    
+    elif channel == 4:
+        if state == 0:
+            wiringpi.digitalWrite(23, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(23, GPIO.HIGH)
+    
+    
+    else:
+        print(f"Error: Invalid parametr channel {channel}")    
 
 def process_B_command(channel, state):
     # Обработка команды B
     print(f"Processing B command: Channel {channel}, State {state}")
+    
+    if channel == 1:
+        if state == 0:
+            wiringpi.digitalWrite(5, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(5, GPIO.HIGH)
+    
+    elif channel == 2:
+        if state == 0:
+            wiringpi.digitalWrite(8, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(8, GPIO.HIGH)
+    
+    elif channel == 3:
+        if state == 0:
+            wiringpi.digitalWrite(14, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(14, GPIO.HIGH)
+    
+    
+    elif channel == 4:
+        if state == 0:
+            wiringpi.digitalWrite(21, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(21, GPIO.HIGH)
+    
+    
+    else:
+        print(f"Error: Invalid parametr channel {channel}")    
 
 def process_REL_command(channel, state):
     # Обработка команды REL
