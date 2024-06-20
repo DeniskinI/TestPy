@@ -68,8 +68,7 @@ def process_LG_command(channel, state):
     
     else:
         print(f"Error: Invalid parametr channel {channel}")
-        
-    wiringpi.digitalWrite(2, GPIO.LOW)
+
 
 def process_L_command(channel, state):
     # Обработка команды L
@@ -86,6 +85,35 @@ def process_B_command(channel, state):
 def process_REL_command(channel, state):
     # Обработка команды REL
     print(f"Processing REL command: Channel {channel}, State {state}")
+    
+    if channel == 1:
+        if state == 0:
+            wiringpi.digitalWrite(20, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(20, GPIO.HIGH)
+    
+    elif channel == 2:
+        if state == 0:
+            wiringpi.digitalWrite(13, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(13, GPIO.HIGH)
+    
+    elif channel == 3:
+        if state == 0:
+            wiringpi.digitalWrite(4, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(4, GPIO.HIGH)
+    
+    
+    elif channel == 4:
+        if state == 0:
+            wiringpi.digitalWrite(3, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(3, GPIO.HIGH)
+    
+    
+    else:
+        print(f"Error: Invalid parametr channel {channel}")    
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("--device", type=str, default="/dev/ttyS3", help='specify the serial node')
