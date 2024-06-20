@@ -40,6 +40,36 @@ def process_command(command):
 def process_LG_command(channel, state):
     # Обработка команды LG
     print(f"Processing LG command: Channel {channel}, State {state}")
+    if channel == 1:
+        if state == 0:
+            wiringpi.digitalWrite(7, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(7, GPIO.HIGH)
+    
+    elif channel == 2:
+        if state == 0:
+            wiringpi.digitalWrite(10, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(10, GPIO.HIGH)
+    
+    elif channel == 3:
+        if state == 0:
+            wiringpi.digitalWrite(16, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(16, GPIO.HIGH)
+    
+    
+    elif channel == 4:
+        if state == 0:
+            wiringpi.digitalWrite(22, GPIO.LOW)
+        else:
+            wiringpi.digitalWrite(22, GPIO.HIGH)
+    
+    
+    else:
+        print(f"Error: Invalid parametr channel {channel}")
+        
+    wiringpi.digitalWrite(2, GPIO.LOW)
 
 def process_L_command(channel, state):
     # Обработка команды L
