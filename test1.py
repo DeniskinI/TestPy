@@ -5,6 +5,9 @@ import argparse
 def process_command(command):
     cmd = command[0:3]  # Получаем команду cmd
     
+def process_command(command):
+    cmd = command[0:3]  # Получаем команду cmd
+    
     if cmd[0] == 'L':
         if cmd[1] == 'R':
             channel = int(command[2])
@@ -13,7 +16,7 @@ def process_command(command):
         elif cmd[1] == 'G':
             channel = int(command[1])
             state = int(command[3])    
-            process_LG_command(channel, state       
+            process_LG_command(channel, state)       
         elif cmd[1].isdigit():
             channel = int(command[1])
             state = int(command[3])
@@ -29,8 +32,7 @@ def process_command(command):
         state = int(command[5])        
         process_REL_command(channel, state)
     else:
-        print(f"Error: Invalid command {cmd}")    
-        
+        print(f"Error: Invalid command {cmd}")
 
 
 
